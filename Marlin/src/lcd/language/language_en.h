@@ -114,6 +114,8 @@ namespace Language_en {
   PROGMEM Language_Str MSG_LASER_POWER                     = _UxGT("Laser Power");
   PROGMEM Language_Str MSG_SPINDLE_POWER                   = _UxGT("Spindle Pwr");
   PROGMEM Language_Str MSG_LASER_TOGGLE                    = _UxGT("Toggle Laser");
+  PROGMEM Language_Str MSG_LASER_PULSE_MS                  = _UxGT("Test Pulse ms");
+  PROGMEM Language_Str MSG_LASER_FIRE_PULSE                = _UxGT("Fire Pulse");
   PROGMEM Language_Str MSG_SPINDLE_TOGGLE                  = _UxGT("Toggle Spindle");
   PROGMEM Language_Str MSG_SPINDLE_FORWARD                 = _UxGT("Spindle Forward");
   PROGMEM Language_Str MSG_SPINDLE_REVERSE                 = _UxGT("Spindle Reverse");
@@ -128,6 +130,8 @@ namespace Language_en {
   PROGMEM Language_Str MSG_LEVEL_CORNERS                   = _UxGT("Level Corners");
   PROGMEM Language_Str MSG_LEVEL_CORNERS_RAISE             = _UxGT("Raise Bed Until Probe Triggered");
   PROGMEM Language_Str MSG_LEVEL_CORNERS_IN_RANGE          = _UxGT("All Corners Within Tolerance. Level Bed");
+  PROGMEM Language_Str MSG_LEVEL_CORNERS_GOOD_POINTS       = _UxGT("Good Points: ");
+  PROGMEM Language_Str MSG_LEVEL_CORNERS_LAST_Z            = _UxGT("Last Z: ");
   PROGMEM Language_Str MSG_NEXT_CORNER                     = _UxGT("Next Corner");
   PROGMEM Language_Str MSG_MESH_EDITOR                     = _UxGT("Mesh Editor");
   PROGMEM Language_Str MSG_EDIT_MESH                       = _UxGT("Edit Mesh");
@@ -257,7 +261,7 @@ namespace Language_en {
   PROGMEM Language_Str MSG_MOVE_E                          = _UxGT("Extruder");
   PROGMEM Language_Str MSG_MOVE_EN                         = _UxGT("Extruder *");
   PROGMEM Language_Str MSG_HOTEND_TOO_COLD                 = _UxGT("Hotend too cold");
-  PROGMEM Language_Str MSG_MOVE_Z_DIST                     = _UxGT("Move %smm");
+  PROGMEM Language_Str MSG_MOVE_N_MM                       = _UxGT("Move %smm");
   PROGMEM Language_Str MSG_MOVE_01MM                       = _UxGT("Move 0.1mm");
   PROGMEM Language_Str MSG_MOVE_1MM                        = _UxGT("Move 1mm");
   PROGMEM Language_Str MSG_MOVE_10MM                       = _UxGT("Move 10mm");
@@ -272,6 +276,9 @@ namespace Language_en {
   PROGMEM Language_Str MSG_NOZZLE_STANDBY                  = _UxGT("Nozzle Standby");
   PROGMEM Language_Str MSG_BED                             = _UxGT("Bed");
   PROGMEM Language_Str MSG_CHAMBER                         = _UxGT("Enclosure");
+  PROGMEM Language_Str MSG_COOLER                          = _UxGT("Laser Coolant");
+  PROGMEM Language_Str MSG_COOLER_TOGGLE                   = _UxGT("Toggle Cooler");
+  PROGMEM Language_Str MSG_LASER                           = _UxGT("Laser");
   PROGMEM Language_Str MSG_FAN_SPEED                       = _UxGT("Fan Speed");
   PROGMEM Language_Str MSG_FAN_SPEED_N                     = _UxGT("Fan Speed ~");
   PROGMEM Language_Str MSG_STORED_FAN_N                    = _UxGT("Stored Fan ~");
@@ -388,6 +395,7 @@ namespace Language_en {
   PROGMEM Language_Str MSG_RESUME_PRINT                    = _UxGT("Resume Print");
   PROGMEM Language_Str MSG_HOST_START_PRINT                = _UxGT("Host Start");
   PROGMEM Language_Str MSG_STOP_PRINT                      = _UxGT("Stop Print");
+  PROGMEM Language_Str MSG_END_LOOPS                       = _UxGT("End Repeat Loops");
   PROGMEM Language_Str MSG_PRINTING_OBJECT                 = _UxGT("Printing Object");
   PROGMEM Language_Str MSG_CANCEL_OBJECT                   = _UxGT("Cancel Object");
   PROGMEM Language_Str MSG_CANCEL_OBJECT_N                 = _UxGT("Cancel Object =");
@@ -477,6 +485,8 @@ namespace Language_en {
   PROGMEM Language_Str MSG_THERMAL_RUNAWAY                 = _UxGT("THERMAL RUNAWAY");
   PROGMEM Language_Str MSG_THERMAL_RUNAWAY_BED             = _UxGT("BED THERMAL RUNAWAY");
   PROGMEM Language_Str MSG_THERMAL_RUNAWAY_CHAMBER         = _UxGT("CHAMBER T. RUNAWAY");
+  PROGMEM Language_Str MSG_THERMAL_RUNAWAY_COOLER          = _UxGT("Cooler Runaway");
+  PROGMEM Language_Str MSG_COOLING_FAILED                  = _UxGT("Cooling Failed");
   PROGMEM Language_Str MSG_ERR_MAXTEMP                     = _UxGT("Err: MAXTEMP");
   PROGMEM Language_Str MSG_ERR_MINTEMP                     = _UxGT("Err: MINTEMP");
   PROGMEM Language_Str MSG_HALTED                          = _UxGT("PRINTER HALTED");
@@ -492,6 +502,7 @@ namespace Language_en {
   PROGMEM Language_Str MSG_PROBE_COOLING                   = _UxGT("Probe Cooling...");
   PROGMEM Language_Str MSG_CHAMBER_HEATING                 = _UxGT("Chamber Heating...");
   PROGMEM Language_Str MSG_CHAMBER_COOLING                 = _UxGT("Chamber Cooling...");
+  PROGMEM Language_Str MSG_LASER_COOLING                   = _UxGT("Laser Cooling...");
   PROGMEM Language_Str MSG_DELTA_CALIBRATE                 = _UxGT("Delta Calibration");
   PROGMEM Language_Str MSG_DELTA_CALIBRATE_X               = _UxGT("Calibrate X");
   PROGMEM Language_Str MSG_DELTA_CALIBRATE_Y               = _UxGT("Calibrate Y");
@@ -682,14 +693,12 @@ namespace Language_en {
 
   PROGMEM Language_Str MSG_SOUND                           = _UxGT("Sound");
 
-  #if ENABLED(TOUCH_SCREEN_CALIBRATION)
-    PROGMEM Language_Str MSG_TOP_LEFT                      = _UxGT("Top Left");
-    PROGMEM Language_Str MSG_BOTTOM_LEFT                   = _UxGT("Bottom Left");
-    PROGMEM Language_Str MSG_TOP_RIGHT                     = _UxGT("Top Right");
-    PROGMEM Language_Str MSG_BOTTOM_RIGHT                  = _UxGT("Bottom Right");
-    PROGMEM Language_Str MSG_CALIBRATION_COMPLETED         = _UxGT("Calibration Completed");
-    PROGMEM Language_Str MSG_CALIBRATION_FAILED            = _UxGT("Calibration Failed");
-  #endif
+  PROGMEM Language_Str MSG_TOP_LEFT                        = _UxGT("Top Left");
+  PROGMEM Language_Str MSG_BOTTOM_LEFT                     = _UxGT("Bottom Left");
+  PROGMEM Language_Str MSG_TOP_RIGHT                       = _UxGT("Top Right");
+  PROGMEM Language_Str MSG_BOTTOM_RIGHT                    = _UxGT("Bottom Right");
+  PROGMEM Language_Str MSG_CALIBRATION_COMPLETED           = _UxGT("Calibration Completed");
+  PROGMEM Language_Str MSG_CALIBRATION_FAILED              = _UxGT("Calibration Failed");
 }
 
 #if FAN_COUNT == 1
